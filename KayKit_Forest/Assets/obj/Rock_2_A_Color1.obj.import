@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b8wgx50c6mygr"
+path="res://.godot/imported/Rock_2_A_Color1.obj-38275232dc75dd76440acdd1a99d479e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Rock_2_A_Color1.obj-38275232dc75dd76440acdd1a99d479e.mesh"]
+
+source_file="res://KayKit_Forest/Assets/obj/Rock_2_A_Color1.obj"
+dest_files=["res://.godot/imported/Rock_2_A_Color1.obj-38275232dc75dd76440acdd1a99d479e.mesh", "res://.godot/imported/Rock_2_A_Color1.obj-38275232dc75dd76440acdd1a99d479e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

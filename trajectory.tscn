@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhd0v5nlw8ekn"]
+
+[ext_resource type="Script" uid="uid://bl554xldyk3cb" path="res://trajectory.gd" id="1_qmsch"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmsch"]
+albedo_color = Color(0.832644, 0.549894, 0.0658648, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qmsch"]
+material = SubResource("StandardMaterial3D_qmsch")
+radius = 0.05
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72qoj"]
+albedo_color = Color(0.479634, 0, 0.107058, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k7cbv"]
+material = SubResource("StandardMaterial3D_72qoj")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7cbv"]
+albedo_color = Color(0.472845, 0.472845, 0.472845, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p1627"]
+material = SubResource("StandardMaterial3D_k7cbv")
+size = Vector3(0.02, 0.02, 0.001)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d6ndd"]
+radius = 0.0543916
+height = 0.327823
+
+[node name="trajectory" type="RigidBody3D"]
+max_contacts_reported = 3
+linear_damp_mode = 1
+script = ExtResource("1_qmsch")
+
+[node name="mesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0100155, 0, -0.00547123)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.192499, 0)
+mesh = SubResource("CapsuleMesh_qmsch")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 0.783527, 0, 0, 0, 1.0013, 0, 0.0398243, 0)
+mesh = SubResource("CylinderMesh_k7cbv")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="fin" type="Node3D" parent="mesh"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="mesh/fin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029572, 0.0129092, 0.000144482)
+mesh = SubResource("BoxMesh_p1627")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="mesh/fin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299204, 0.0129092, 0.000144482)
+mesh = SubResource("BoxMesh_p1627")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="mesh/fin"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.011155, 0.0325052)
+mesh = SubResource("BoxMesh_p1627")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="mesh/fin"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.011155, -0.0311334)
+mesh = SubResource("BoxMesh_p1627")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0100155, 0.163027, -0.00547123)
+shape = SubResource("CapsuleShape3D_d6ndd")
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -4.055)
