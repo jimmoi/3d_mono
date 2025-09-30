@@ -28,6 +28,7 @@ func _ready() -> void:
 	mortar_barrel.rotation.x = deg_to_rad(initial_barrel_angle)
 	mortar_barrel_length = mortar_barrel.get_node("mesh_barrel").mesh.height	
 	main_cam = $motar/Camera3D
+	
 func _physics_process(delta: float) -> void:
 	mortar_movement(delta)
 	mortar_movement_fine()
