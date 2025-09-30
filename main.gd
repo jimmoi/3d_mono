@@ -122,6 +122,7 @@ func switch_shell_camera():
 		shell_cam.make_current()
 	else:
 		main_cam.make_current()
+		
 func _on_reload_cool_down_timeout() -> void:
 	mortar_status = true
 	
